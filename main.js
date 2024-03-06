@@ -237,7 +237,4 @@ function startGame() {
     }
   }
 };
-
-setTimeout(() => {
-  startGame();
-}, 500)
+window.onload = startGame;
