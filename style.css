@@ -209,8 +209,7 @@ body {
   transition: visibility .25s, transform .25s linear, opacity .4s ease-in-out;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
 }
 .tag_active {
   visibility: visible;
@@ -411,12 +410,21 @@ body {
 }
 
 .second-page__level-blur {
+  filter: blur(0px);
+}
+
+.second-page__level_disable .second-page__level-blur {
   position: relative;
   filter: blur(4px);
   opacity: 0.5;
 }
 
+.second-page__level-warning {
+  display: none;
+}
+
 .second-page__level_disable .second-page__level-warning {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -433,6 +441,7 @@ body {
 
 .second-page__level_disable .second-page__level-button {
   display: none;
+  pointer-events: none;
 }
 
 .tag__topbar {
@@ -490,6 +499,8 @@ body {
 }
 
 .tag__meme-info {
+  height: 200px;
+  overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.15);
   padding: 24px 20px;
   border-radius: 25px 25px 0 0;
@@ -635,6 +646,7 @@ body {
   line-height: 127%;
   text-align: center;
   color: #fff;
+  width: 100%;
 }
 .tag__overlay-button:hover {
   cursor: pointer;
@@ -657,6 +669,11 @@ body {
   line-height: 127%;
   text-align: center;
   color: #fff;
+}
+@media screen and (max-height: 650px) {
+  .tag__overlay-exit-btn {
+    bottom: 20px;
+  }
 }
 .tag__overlay-exit-btn:hover {
   cursor: pointer;
